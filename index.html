@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meena Vignesh M | Portfolio</title>
+  <meta name="description" content="Portfolio of Meena Vignesh M – B.Tech Biotechnology student focused on Bioengineering." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #111827;
+      --card: #1a2332;
+      --primary: #3b82f6;
+      --primary-soft: #60a5fa;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #243044;
+      --accent: #22d3ee;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Background gradient animation */
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(59, 130, 246, 0.18), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 10%, rgba(34, 211, 238, 0.12), transparent),
+        var(--bg);
+      animation: glowPulse 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowPulse {
+      0% { opacity: 0.85; }
+      100% { opacity: 1; }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 18, 32, 0.75);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span {
+      color: var(--primary-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-soft);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--primary-soft);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s ease-out 0.1s both;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.7s ease-out 0.2s both;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary-soft), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.7s ease-out 0.3s both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp 0.7s ease-out 0.4s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--primary-soft);
+      color: var(--primary-soft);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sections */
+    section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+
+    /* Cards */
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      animation: fadeUp 0.6s ease-out both;
+    }
+
+    .card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .card .meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      background: rgba(59, 130, 246, 0.12);
+      color: var(--primary-soft);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-right: 0.35rem;
+      margin-top: 0.75rem;
+    }
+
+    /* Skills */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-pill {
+      padding: 0.45rem 0.9rem;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--text);
+      transition: all 0.25s ease;
+    }
+
+    .skill-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary-soft);
+      transform: scale(1.04);
+    }
+
+    /* Timeline style for experience */
+    .timeline-item {
+      position: relative;
+      padding-left: 1.5rem;
+      padding-bottom: 1.75rem;
+      border-left: 2px solid var(--border);
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    }
+
+    /* Contact */
+    .contact-box {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 211, 238, 0.06));
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      border-radius: 16px;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .contact-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        padding: 0.9rem 1.1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .nav-links a {
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <nav>
+    <div class="logo">Meena <span>Vignesh</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-badge">B.Tech Biotechnology · 3rd Semester</div>
+    <h1>Building at the intersection of<br /><span>Biology & Engineering</span></h1>
+    <p>
+      Second-year student focused on Bioengineering. Passionate about applying engineering principles
+      to biological systems and using modern tools to ship practical projects.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://github.com/meenavignesh-svg" target="_blank" rel="noopener">
+        View GitHub
+      </a>
+      <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+    </div>
+  </header>
+
+  <section id="about" class="reveal">
+    <h2 class="section-title">About</h2>
+    <p class="section-sub">A quick snapshot of who I am and what I’m working toward.</p>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Education</h3>
+        <div class="meta">Sethu Institute of Technology · 2025 – 2029</div>
+        <p>
+          B.Tech in Biotechnology<br />
+          Current CGPA: <strong>7.4 / 10.0</strong><br /><br />
+          Core subjects include Bioorganic Chemistry, Biochemistry, Microbiology,
+          Cell Biology, and Analytical Methods & Instrumentation.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Focus Areas</h3>
+        <div class="meta">Current interests</div>
+        <p>
+          Bioengineering, application of engineering principles to biological systems,
+          practical project development, and AI-assisted technical workflows.
+        </p>
+        <div>
+          <span class="tag">Bioengineering</span>
+          <span class="tag">Python</span>
+          <span class="tag">AI Tools</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem;">
+      <h3 style="font-size: 1.05rem; margin-bottom: 1rem;">Technical Skills</h3>
+      <div class="skills-list">
+        <span class="skill-pill">Python (Beginner / Active Learner)</span>
+        <span class="skill-pill">AI-Assisted Development</span>
+        <span class="skill-pill">JSON Prompting</span>
+        <span class="skill-pill">GitHub</span>
+        <span class="skill-pill">VS Code</span>
+        <span class="skill-pill">Bioorganic Chemistry</span>
+        <span class="skill-pill">Analytical Instrumentation</span>
+        <span class="skill-pill">Microbiology</span>
+        <span class="skill-pill">Cell Biology</span>
+        <span class="skill-pill">Biochemistry</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">Selected work and experiments.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Margots</h3>
+        <div class="meta">Technical Tooling for Scientific Work · GitHub</div>
+        <p>
+          Open-source project focused on supporting scientific and technical tasks relevant to
+          biotechnology and engineering applications. Built using AI-assisted coding and structured
+          prompting to create accessible workflows.
+        </p>
+        <div>
+          <span class="tag">Python</span>
+          <span class="tag">Open Source</span>
+          <span class="tag">Scientific Tooling</span>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a class="btn btn-ghost" style="padding: 0.5rem 1rem; font-size: 0.85rem;"
+             href="https://github.com/meenavignesh-svg/margots" target="_blank" rel="noopener">
+            View Repository →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <h2 class="section-title">Experience & Memberships</h2>
+    <p class="section-sub">Practical exposure and community involvement.</p>
+
+    <div class="timeline-item">
+      <h3 style="font-size: 1.05rem;">Biotechnology Intern · CodeAlpha</h3>
+      <div class="meta" style="margin-bottom: 0.4rem;">Selected internship focused on practical learning and project-oriented exposure.</div>
+    </div>
+
+    <div class="timeline-item">
+      <h3 style="font-size: 1.05rem;">Industrial Trainee · SPS Chilling Centre, Dindigul</h3>
+      <div class="meta" style="margin-bottom: 0.4rem;">June 2026 · Observed milk processing, chilling, quality assessment, and sanitation protocols.</div>
+    </div>
+
+    <div class="timeline-item">
+      <h3 style="font-size: 1.05rem;">Student Member · ASM Global Outreach</h3>
+      <div class="meta" style="margin-bottom: 0.4rem;">American Society for Microbiology · Connected to developments in microbial and life-science research.</div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="contact-box">
+      <h2>Let’s Connect</h2>
+      <p>Open to research internships and collaborative opportunities in Bioengineering.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:meenavignesh6789@gmail.com">Email Me</a>
+        <a class="btn btn-ghost" href="https://github.com/meenavignesh-svg" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/meena-vignesh-m-310664380" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted);">
+        09791361692 · Tamil Nadu, India
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Meena Vignesh M · Built with care for academic & research opportunities</p>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
