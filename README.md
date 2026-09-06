@@ -1,8 +1,8 @@
 # Meena Vignesh M — Portfolio
 
-**B.Tech Biotechnology (3rd Semester)** · Focused on **Bioengineering**
+**B.Tech Biotechnology (3rd Semester)** · Focused on **Bioengineering, Bioinformatics & AI for Biology**
 
-Personal portfolio website and academic materials.
+Personal portfolio website showcasing academic background, technical projects, and research interests.
 
 🌐 **Live Portfolio:** [meenavignesh-svg.github.io/meena-vignesh-portfolio](https://meenavignesh-svg.github.io/meena-vignesh-portfolio)
 
@@ -10,10 +10,15 @@ Personal portfolio website and academic materials.
 
 ### About
 Second-year Biotechnology student at Sethu Institute of Technology (CGPA 7.4/10).  
-Interested in applying engineering principles to biological systems and building practical technical projects.
+Interested in applying engineering principles and AI tools to biological systems, computational biology, and practical scientific workflows.
 
-### Featured Project
-- **[Margots](https://github.com/meenavignesh-svg/margots)** — Technical tooling for scientific work
+### Featured Projects
+- **[MARGOTS](https://github.com/meenavignesh-svg/margots)** — AI-native genomic workflow & bioinformatics automation platform
+- **[PEG Biodegradation (BioHub)](https://github.com/meenavignesh-svg/PEG-BIODEGRADATION)** — SIH 2026 Clean & Green Technology process visualization
+- **[Aegis Bio-Node](https://github.com/meenavignesh-svg/AEGIS-BIO-NODE)** — Conceptual next-generation bioreactor architecture
+- **[Rosalind Complete Suite](https://github.com/meenavignesh-svg/rosalind-complete-suite)** — Bioinformatics problem-solving practice
+- **[CodeAlpha Biotech Internship](https://github.com/meenavignesh-svg/CodeAlpha-Biotech-Internship)** — Internship technical deliverables
+- **[SIH Image Understanding AI](https://github.com/meenavignesh-svg/SIH-IMAGE-UNDERSTANDING-AI)** — AI / computer vision exploration
 
 ### Contact
 - Email: meenavignesh6789@gmail.com  
@@ -22,4 +27,13 @@ Interested in applying engineering principles to biological systems and building
 
 ---
 
-*Open to research internship opportunities in Bioengineering.*
+*Open to research internship opportunities in Bioengineering, Bioinformatics, and AI for Biology.*
+
+### Deploy (GitHub Pages)
+1. Go to the repository **Settings → Pages**
+2. Under **Source**, select **Deploy from a branch**
+3. Choose branch `main` and folder `/ (root)`
+4. Click **Save**
+
+The site will be available at:  
+`https://meenavignesh-svg.github.io/meena-vignesh-portfolio`
