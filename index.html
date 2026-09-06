@@ -3,455 +3,327 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meena Vignesh M | Bioengineering & Bioinformatics Portfolio</title>
-  <meta name="description" content="Portfolio of Meena Vignesh M – B.Tech Biotechnology student focused on Bioengineering, Bioinformatics, Computational Biology, and AI for Biology." />
-  <meta name="theme-color" content="#0b1220" />
+  <title>Meena Vignesh M | Biotechnology · Bioinformatics · AI</title>
+  <meta name="description" content="Portfolio of Meena Vignesh M — B.Tech Biotechnology student focused on Bioengineering, Bioinformatics, Computational Biology, and AI for Biology." />
+  <meta name="theme-color" content="#020617" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b1220;
-      --bg-soft: #111827;
-      --card: #1a2332;
-      --primary: #3b82f6;
-      --primary-soft: #60a5fa;
-      --text: #f1f5f9;
+      --bg: #020617;
+      --surface: #0f172a;
+      --surface-2: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
       --muted: #94a3b8;
-      --border: #243044;
       --accent: #22d3ee;
+      --accent-2: #818cf8;
+      --green: #34d399;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       overflow-x: hidden;
     }
-
-    .bg-glow {
+    body::before {
+      content: '';
       position: fixed;
       inset: 0;
       z-index: -1;
-      background:
-        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(59, 130, 246, 0.18), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 10%, rgba(34, 211, 238, 0.12), transparent),
-        var(--bg);
-      animation: glowPulse 12s ease-in-out infinite alternate;
+      background-image:
+        linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
     }
-
-    @keyframes glowPulse {
-      0% { opacity: 0.85; }
-      100% { opacity: 1; }
-    }
-
-    nav {
+    a { color: inherit; text-decoration: none; }
+    .nav {
       position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(11, 18, 32, 0.82);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      top: 0; left: 0; right: 0;
       z-index: 100;
-      animation: slideDown 0.6s ease-out;
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .logo span {
-      color: var(--primary-soft);
-    }
-
-    .nav-links {
       display: flex;
-      gap: 1.75rem;
-      list-style: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(51, 65, 85, 0.6);
     }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.25s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-soft);
-    }
-
-    .nav-toggle {
+    .nav-brand { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-burger {
       display: none;
       background: none;
-      border: none;
+      border: 1px solid var(--border);
       color: var(--text);
-      font-size: 1.5rem;
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      font-size: 1.25rem;
       cursor: pointer;
-      line-height: 1;
-      padding: 0.25rem;
     }
-
     .hero {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      place-items: center;
+      padding: 7rem 1.5rem 4rem;
       text-align: center;
-      padding: 6rem 1.5rem 4rem;
     }
-
-    .hero-photo {
-      width: 140px;
-      height: 140px;
+    .hero-inner { max-width: 720px; }
+    .avatar {
+      width: 128px; height: 128px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid rgba(59, 130, 246, 0.45);
-      box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.12), 0 12px 32px rgba(0, 0, 0, 0.35);
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.7s ease-out 0.05s both;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 8px rgba(34, 211, 238, 0.12), 0 20px 40px rgba(0,0,0,0.4);
+      margin: 0 auto 1.75rem;
+      display: block;
     }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 0.35rem 0.9rem;
-      background: rgba(59, 130, 246, 0.12);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      border-radius: 999px;
-      font-size: 0.8rem;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
       font-weight: 500;
-      color: var(--primary-soft);
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.7s ease-out 0.1s both;
+      color: var(--accent);
+      background: rgba(34, 211, 238, 0.08);
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
     }
-
+    .eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
     .hero h1 {
-      font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+      font-size: clamp(2rem, 5vw, 3.25rem);
       font-weight: 700;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
       line-height: 1.15;
       margin-bottom: 1rem;
-      animation: fadeUp 0.7s ease-out 0.2s both;
     }
-
-    .hero h1 span {
-      background: linear-gradient(135deg, var(--primary-soft), var(--accent));
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
-    .hero p {
-      max-width: 560px;
+    .hero-lead {
       color: var(--muted);
-      font-size: 1.08rem;
-      margin-bottom: 2rem;
-      animation: fadeUp 0.7s ease-out 0.3s both;
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 0 auto 2rem;
     }
-
-    .hero-cta {
+    .hero-actions {
       display: flex;
-      gap: 1rem;
       flex-wrap: wrap;
+      gap: 0.75rem;
       justify-content: center;
-      animation: fadeUp 0.7s ease-out 0.4s both;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.4rem;
+      gap: 0.4rem;
+      padding: 0.7rem 1.25rem;
       border-radius: 10px;
       font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
+      font-size: 0.9rem;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
       border: none;
+      cursor: pointer;
     }
-
+    .btn:hover { transform: translateY(-2px); }
     .btn-primary {
-      background: var(--primary);
-      color: white;
+      background: var(--accent);
+      color: #020617;
+      box-shadow: 0 4px 20px rgba(34, 211, 238, 0.25);
     }
-
     .btn-primary:hover {
-      background: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+      background: #67e8f9;
+      box-shadow: 0 8px 28px rgba(34, 211, 238, 0.35);
     }
-
-    .btn-ghost {
+    .btn-outline {
       background: transparent;
       color: var(--text);
       border: 1px solid var(--border);
     }
-
-    .btn-ghost:hover {
-      border-color: var(--primary-soft);
-      color: var(--primary-soft);
-      transform: translateY(-2px);
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    section {
+    .section {
       max-width: 960px;
       margin: 0 auto;
-      padding: 4.5rem 1.5rem;
+      padding: 4rem 1.5rem;
     }
-
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 700;
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
       margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
     }
-
-    .section-sub {
+    .section-desc {
       color: var(--muted);
-      margin-bottom: 2.5rem;
-      font-size: 1rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
     }
-
-    .grid {
+    .cards {
       display: grid;
-      gap: 1.25rem;
-    }
-
-    .grid-2 {
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
     }
-
     .card {
-      background: var(--card);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
+      padding: 1.35rem;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
       display: flex;
       flex-direction: column;
     }
-
     .card:hover {
-      border-color: rgba(59, 130, 246, 0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      border-color: rgba(34, 211, 238, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
     }
-
-    .card h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .card .meta {
-      font-size: 0.85rem;
+    .card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .card-meta {
+      font-size: 0.8rem;
       color: var(--muted);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.65rem;
+      font-family: 'JetBrains Mono', monospace;
     }
-
-    .card p {
-      font-size: 0.92rem;
-      color: var(--muted);
-      flex-grow: 1;
-    }
-
+    .card p { font-size: 0.9rem; color: var(--muted); flex: 1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.85rem; }
     .tag {
-      display: inline-block;
-      padding: 0.2rem 0.55rem;
-      background: rgba(59, 130, 246, 0.12);
-      color: var(--primary-soft);
-      border-radius: 6px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 500;
-      margin-right: 0.35rem;
-      margin-top: 0.6rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      background: rgba(129, 140, 248, 0.12);
+      color: var(--accent-2);
+      border: 1px solid rgba(129, 140, 248, 0.2);
     }
-
-    .card-actions {
+    .card-link {
+      display: inline-flex;
       margin-top: 1rem;
-    }
-
-    .card-actions .btn {
-      padding: 0.45rem 0.95rem;
       font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
     }
-
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
-
-    .skill-pill {
-      padding: 0.45rem 0.9rem;
-      background: var(--bg-soft);
+    .card-link:hover { text-decoration: underline; }
+    .skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill {
+      padding: 0.4rem 0.85rem;
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 999px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text);
-      transition: all 0.25s ease;
+      transition: border-color 0.2s, color 0.2s;
     }
-
-    .skill-pill:hover {
-      border-color: var(--primary);
-      color: var(--primary-soft);
-      transform: scale(1.04);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 1.5rem;
-      padding-bottom: 1.75rem;
-      border-left: 2px solid var(--border);
-    }
-
-    .timeline-item:last-child {
-      padding-bottom: 0;
-    }
-
-    .timeline-item::before {
+    .skill:hover { border-color: var(--accent); color: var(--accent); }
+    .timeline { position: relative; padding-left: 1.25rem; }
+    .timeline::before {
       content: '';
       position: absolute;
-      left: -7px;
-      top: 4px;
-      width: 12px;
-      height: 12px;
+      left: 0; top: 4px; bottom: 4px;
+      width: 2px;
+      background: var(--border);
+    }
+    .tl-item {
+      position: relative;
+      padding-bottom: 1.5rem;
+      padding-left: 1.25rem;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.3rem; top: 6px;
+      width: 10px; height: 10px;
       border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
     }
-
-    .timeline-item h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-
-    .contact-box {
-      text-align: center;
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 211, 238, 0.06));
-      border: 1px solid rgba(59, 130, 246, 0.25);
+    .tl-item h3 { font-size: 1rem; font-weight: 600; }
+    .tl-item .card-meta { margin-bottom: 0.2rem; }
+    .contact-panel {
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), rgba(129, 140, 248, 0.08));
+      border: 1px solid rgba(34, 211, 238, 0.2);
       border-radius: 16px;
       padding: 2.5rem 1.5rem;
+      text-align: center;
     }
-
-    .contact-box h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-box > p {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-links {
+    .contact-panel h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .contact-panel > p { color: var(--muted); margin-bottom: 1.5rem; }
+    .contact-actions {
       display: flex;
-      gap: 1rem;
-      justify-content: center;
       flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
     }
-
+    .contact-note {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
     footer {
       text-align: center;
       padding: 2rem 1rem 3rem;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       border-top: 1px solid var(--border);
     }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     @media (max-width: 720px) {
-      nav {
-        padding: 0.9rem 1.1rem;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
+      .nav-burger { display: block; }
       .nav-links {
         display: none;
         position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
+        top: 100%; left: 0; right: 0;
         flex-direction: column;
-        background: rgba(11, 18, 32, 0.97);
-        backdrop-filter: blur(14px);
+        background: rgba(2, 6, 23, 0.97);
         border-bottom: 1px solid var(--border);
         padding: 1rem 1.25rem 1.25rem;
-        gap: 0.9rem;
+        gap: 0.75rem;
       }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        font-size: 0.95rem;
-        padding: 0.35rem 0;
-      }
-
-      .hero {
-        padding-top: 5.5rem;
-      }
-
-      .hero-photo {
-        width: 110px;
-        height: 110px;
-      }
+      .nav-links.open { display: flex; }
+      .avatar { width: 100px; height: 100px; }
     }
   </style>
 </head>
 <body>
-  <div class="bg-glow"></div>
-
-  <nav>
-    <a href="#" class="logo">Meena <span>Vignesh</span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">☰</button>
-    <ul class="nav-links" id="navLinks">
+  <nav class="nav">
+    <a class="nav-brand" href="#">Meena <span>Vignesh</span></a>
+    <button class="nav-burger" id="burger" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="menu">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -460,266 +332,160 @@
   </nav>
 
   <header class="hero">
-    <img class="hero-photo" src="https://avatars.githubusercontent.com/u/251947734?v=4&s=400" alt="Meena Vignesh M" width="140" height="140" />
-    <div class="hero-badge">B.Tech Biotechnology · 3rd Semester</div>
-    <h1>Building at the intersection of<br /><span>Biology, Engineering & AI</span></h1>
-    <p>
-      Second-year Biotechnology student focused on Bioengineering, Bioinformatics,
-      and Computational Biology. Passionate about applying engineering principles and
-      modern AI tools to biological systems and practical scientific workflows.
-    </p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="https://github.com/meenavignesh-svg" target="_blank" rel="noopener">
-        View GitHub
-      </a>
-      <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+    <div class="hero-inner">
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/251947734?v=4&s=400" alt="Meena Vignesh M" width="128" height="128" />
+      <div class="eyebrow">Open to research internships</div>
+      <h1>Meena Vignesh M<br /><em>Biology · Engineering · AI</em></h1>
+      <p class="hero-lead">
+        B.Tech Biotechnology (3rd Semester) at Sethu Institute of Technology.
+        Building tools at the intersection of bioengineering, bioinformatics,
+        and AI for biology.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/meenavignesh-svg" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-outline" href="#contact">Contact</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/meena-vignesh-m-310664380" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
   </header>
 
-  <section id="about" class="reveal">
-    <h2 class="section-title">About</h2>
-    <p class="section-sub">A concise overview of background, focus, and current direction.</p>
-    <div class="grid grid-2">
+  <section class="section" id="about">
+    <div class="section-label">01 — About</div>
+    <h2 class="section-title">Background & focus</h2>
+    <p class="section-desc">Education, direction, and technical skills.</p>
+    <div class="cards" style="margin-bottom: 2rem;">
       <div class="card">
         <h3>Education</h3>
-        <div class="meta">Sethu Institute of Technology · 2025 – 2029</div>
-        <p>
-          B.Tech in Biotechnology<br />
-          Current CGPA: <strong>7.4 / 10.0</strong><br /><br />
-          Core coursework includes Bioorganic Chemistry, Biochemistry, Microbiology,
-          Cell Biology, and Analytical Methods & Instrumentation.
-        </p>
+        <div class="card-meta">Sethu Institute of Technology · 2025–2029</div>
+        <p>B.Tech Biotechnology · CGPA <strong>7.4 / 10</strong><br /><br />
+        Coursework: Bioorganic Chemistry, Biochemistry, Microbiology, Cell Biology, Analytical Methods & Instrumentation.</p>
       </div>
       <div class="card">
-        <h3>Focus Areas</h3>
-        <div class="meta">Current interests</div>
-        <p>
-          Bioengineering, Bioinformatics, Computational Biology, AI-assisted scientific
-          workflows, and building practical tools that bridge wet-lab thinking with
-          software and data.
-        </p>
-        <div>
+        <h3>Focus</h3>
+        <div class="card-meta">Current direction</div>
+        <p>Bioengineering, Bioinformatics, Computational Biology, and AI-assisted scientific workflows. Bridging wet-lab thinking with software and data.</p>
+        <div class="tags">
           <span class="tag">Bioengineering</span>
           <span class="tag">Bioinformatics</span>
           <span class="tag">AI for Biology</span>
-          <span class="tag">Python</span>
         </div>
       </div>
     </div>
-
-    <div style="margin-top: 2.25rem;">
-      <h3 style="font-size: 1.05rem; margin-bottom: 1rem;">Technical & Domain Skills</h3>
-      <div class="skills-list">
-        <span class="skill-pill">Python (Active Learner)</span>
-        <span class="skill-pill">AI-Assisted Development</span>
-        <span class="skill-pill">Git & GitHub</span>
-        <span class="skill-pill">VS Code</span>
-        <span class="skill-pill">Bioinformatics Workflows</span>
-        <span class="skill-pill">JSON / Structured Prompting</span>
-        <span class="skill-pill">Bioorganic Chemistry</span>
-        <span class="skill-pill">Biochemistry</span>
-        <span class="skill-pill">Microbiology</span>
-        <span class="skill-pill">Cell Biology</span>
-        <span class="skill-pill">Analytical Instrumentation</span>
-      </div>
+    <h3 style="font-size: 1rem; margin-bottom: 0.85rem;">Skills</h3>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">Git & GitHub</span>
+      <span class="skill">AI-Assisted Development</span>
+      <span class="skill">Bioinformatics Workflows</span>
+      <span class="skill">VS Code</span>
+      <span class="skill">Biochemistry</span>
+      <span class="skill">Microbiology</span>
+      <span class="skill">Cell Biology</span>
+      <span class="skill">Analytical Instrumentation</span>
+      <span class="skill">Bioorganic Chemistry</span>
     </div>
   </section>
 
-  <section id="projects" class="reveal">
-    <h2 class="section-title">Projects</h2>
-    <p class="section-sub">Selected technical and scientific work.</p>
-    <div class="grid grid-2">
-
+  <section class="section" id="projects">
+    <div class="section-label">02 — Projects</div>
+    <h2 class="section-title">Selected work</h2>
+    <p class="section-desc">Technical and scientific projects.</p>
+    <div class="cards">
       <div class="card">
         <h3>MARGOTS</h3>
-        <div class="meta">AI-Native Genomic Workflow & Bioinformatics Platform</div>
-        <p>
-          Open-source platform aimed at turning experimental intent and sequencing data
-          into structured, inspectable bioinformatics workflows, QC, analysis, and reports.
-          Focused on RNA-seq, variant analysis, and reproducible scientific automation.
-        </p>
-        <div>
-          <span class="tag">Python</span>
-          <span class="tag">Bioinformatics</span>
-          <span class="tag">AI Agents</span>
-          <span class="tag">Open Source</span>
-        </div>
-        <div class="card-actions">
-          <a class="btn btn-ghost" href="https://github.com/meenavignesh-svg/margots" target="_blank" rel="noopener">
-            View Repository →
-          </a>
-        </div>
+        <div class="card-meta">Bioinformatics · Python</div>
+        <p>AI-native genomic workflow platform. Turns experimental intent and sequencing data into structured bioinformatics pipelines, QC, analysis, and reports.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Bioinformatics</span><span class="tag">AI Agents</span></div>
+        <a class="card-link" href="https://github.com/meenavignesh-svg/margots" target="_blank" rel="noopener">View repo →</a>
       </div>
-
       <div class="card">
-        <h3>PEG Biodegradation (BioHub)</h3>
-        <div class="meta">SIH 2026 · Clean & Green Technology · Team Marge Organics</div>
-        <p>
-          Interactive process visualization for a PEG wastewater treatment concept:
-          feed → biochar-hydrogel bed → bacterial consortium → breakdown → treated water.
-          Demo-focused engineering communication tool.
-        </p>
-        <div>
-          <span class="tag">HTML/CSS/JS</span>
-          <span class="tag">SIH 2026</span>
-          <span class="tag">Environmental Biotech</span>
-        </div>
-        <div class="card-actions">
-          <a class="btn btn-ghost" href="https://github.com/meenavignesh-svg/PEG-BIODEGRADATION" target="_blank" rel="noopener">
-            View Repository →
-          </a>
-          <a class="btn btn-ghost" href="https://meenavignesh-svg.github.io/PEG-BIODEGRADATION/" target="_blank" rel="noopener">
-            Live Demo →
-          </a>
-        </div>
+        <h3>PEG Biodegradation</h3>
+        <div class="card-meta">SIH 2026 · Clean & Green</div>
+        <p>Interactive process demo for PEG wastewater treatment: feed → biochar-hydrogel bed → bacterial consortium → treated water. Team: Marge Organics.</p>
+        <div class="tags"><span class="tag">SIH 2026</span><span class="tag">Environmental Biotech</span></div>
+        <a class="card-link" href="https://github.com/meenavignesh-svg/PEG-BIODEGRADATION" target="_blank" rel="noopener">View repo →</a>
+        <a class="card-link" href="https://meenavignesh-svg.github.io/PEG-BIODEGRADATION/" target="_blank" rel="noopener" style="margin-left:1rem;">Live demo →</a>
       </div>
-
       <div class="card">
         <h3>Aegis Bio-Node</h3>
-        <div class="meta">Conceptual bioreactor architecture</div>
-        <p>
-          Exploratory work on a next-generation bioreactor concept that moves beyond
-          conventional stirred-tank designs by integrating non-Euclidean geometry with
-          organ-mimetic fluid dynamics for improved biological culture systems.
-        </p>
-        <div>
-          <span class="tag">Bioengineering</span>
-          <span class="tag">Conceptual Design</span>
-          <span class="tag">HTML</span>
-        </div>
-        <div class="card-actions">
-          <a class="btn btn-ghost" href="https://github.com/meenavignesh-svg/AEGIS-BIO-NODE" target="_blank" rel="noopener">
-            View Repository →
-          </a>
-        </div>
+        <div class="card-meta">Bioengineering concept</div>
+        <p>Conceptual next-gen bioreactor exploring non-Euclidean geometry and organ-mimetic fluid dynamics beyond conventional stirred-tank designs.</p>
+        <div class="tags"><span class="tag">Bioengineering</span><span class="tag">Design</span></div>
+        <a class="card-link" href="https://github.com/meenavignesh-svg/AEGIS-BIO-NODE" target="_blank" rel="noopener">View repo →</a>
       </div>
-
       <div class="card">
         <h3>Rosalind Complete Suite</h3>
-        <div class="meta">Bioinformatics problem-solving practice</div>
-        <p>
-          Collection of solutions and structured approaches to Rosalind bioinformatics
-          problems, reinforcing sequence analysis, algorithms, and computational biology
-          fundamentals through practical coding exercises.
-        </p>
-        <div>
-          <span class="tag">Bioinformatics</span>
-          <span class="tag">Python / Algorithms</span>
-          <span class="tag">Learning</span>
-        </div>
-        <div class="card-actions">
-          <a class="btn btn-ghost" href="https://github.com/meenavignesh-svg/rosalind-complete-suite" target="_blank" rel="noopener">
-            View Repository →
-          </a>
-        </div>
+        <div class="card-meta">Algorithms · Learning</div>
+        <p>Solutions and structured approaches to Rosalind bioinformatics problems — sequence analysis, algorithms, computational biology practice.</p>
+        <div class="tags"><span class="tag">Bioinformatics</span><span class="tag">Python</span></div>
+        <a class="card-link" href="https://github.com/meenavignesh-svg/rosalind-complete-suite" target="_blank" rel="noopener">View repo →</a>
       </div>
-
       <div class="card">
-        <h3>CodeAlpha Biotech Internship</h3>
-        <div class="meta">Internship deliverables</div>
-        <p>
-          Technical work completed for the CodeAlpha Biotechnology Internship program.
-          Demonstrates application of engineering principles to biotech problems through
-          structured project deliverables.
-        </p>
-        <div>
-          <span class="tag">Internship</span>
-          <span class="tag">Biotechnology</span>
-          <span class="tag">HTML</span>
-        </div>
-        <div class="card-actions">
-          <a class="btn btn-ghost" href="https://github.com/meenavignesh-svg/CodeAlpha-Biotech-Internship" target="_blank" rel="noopener">
-            View Repository →
-          </a>
-        </div>
+        <h3>CodeAlpha Biotech</h3>
+        <div class="card-meta">Internship</div>
+        <p>Technical deliverables from the CodeAlpha Biotechnology Internship — applying engineering principles to biotech problems.</p>
+        <div class="tags"><span class="tag">Internship</span><span class="tag">Biotechnology</span></div>
+        <a class="card-link" href="https://github.com/meenavignesh-svg/CodeAlpha-Biotech-Internship" target="_blank" rel="noopener">View repo →</a>
       </div>
-
       <div class="card">
         <h3>SIH Image Understanding AI</h3>
-        <div class="meta">Smart India Hackathon related work</div>
-        <p>
-          Project exploring image understanding and AI techniques in a biotechnology /
-          scientific context as part of Smart India Hackathon-related exploration.
-        </p>
-        <div>
-          <span class="tag">AI</span>
-          <span class="tag">Computer Vision</span>
-          <span class="tag">Python</span>
-        </div>
-        <div class="card-actions">
-          <a class="btn btn-ghost" href="https://github.com/meenavignesh-svg/SIH-IMAGE-UNDERSTANDING-AI" target="_blank" rel="noopener">
-            View Repository →
-          </a>
-        </div>
+        <div class="card-meta">AI · Computer Vision</div>
+        <p>Exploration of image understanding and AI techniques in a biotechnology / scientific context for Smart India Hackathon.</p>
+        <div class="tags"><span class="tag">AI</span><span class="tag">Vision</span><span class="tag">Python</span></div>
+        <a class="card-link" href="https://github.com/meenavignesh-svg/SIH-IMAGE-UNDERSTANDING-AI" target="_blank" rel="noopener">View repo →</a>
       </div>
-
     </div>
   </section>
 
-  <section id="experience" class="reveal">
-    <h2 class="section-title">Experience & Memberships</h2>
-    <p class="section-sub">Practical exposure and community involvement.</p>
-
-    <div class="timeline-item">
-      <h3>Biotechnology Intern · CodeAlpha</h3>
-      <div class="meta" style="margin-bottom: 0.4rem;">Selected internship focused on practical learning and project-oriented exposure in biotechnology.</div>
-    </div>
-
-    <div class="timeline-item">
-      <h3>Industrial Trainee · SPS Chilling Centre, Dindigul</h3>
-      <div class="meta" style="margin-bottom: 0.4rem;">June 2026 · Observed milk processing, chilling operations, quality assessment, and sanitation protocols.</div>
-    </div>
-
-    <div class="timeline-item">
-      <h3>Student Member · ASM Global Outreach</h3>
-      <div class="meta" style="margin-bottom: 0.4rem;">American Society for Microbiology · Connected to developments in microbial and life-science research.</div>
-    </div>
-  </section>
-
-  <section id="contact" class="reveal">
-    <div class="contact-box">
-      <h2>Let’s Connect</h2>
-      <p>Open to research internships and collaborative opportunities in Bioengineering, Bioinformatics, and AI for Biology.</p>
-      <div class="contact-links">
-        <a class="btn btn-primary" href="mailto:meenavignesh6789@gmail.com">Email Me</a>
-        <a class="btn btn-ghost" href="https://github.com/meenavignesh-svg" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-ghost" href="https://linkedin.com/in/meena-vignesh-m-310664380" target="_blank" rel="noopener">LinkedIn</a>
+  <section class="section" id="experience">
+    <div class="section-label">03 — Experience</div>
+    <h2 class="section-title">Experience & memberships</h2>
+    <p class="section-desc">Practical exposure and community.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <h3>Biotechnology Intern · CodeAlpha</h3>
+        <div class="card-meta">Internship · Project-oriented learning</div>
       </div>
-      <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted);">
-        09791361692 · Tamil Nadu, India
-      </p>
+      <div class="tl-item">
+        <h3>Industrial Trainee · SPS Chilling Centre, Dindigul</h3>
+        <div class="card-meta">June 2026 · Milk processing, quality assessment, sanitation</div>
+      </div>
+      <div class="tl-item">
+        <h3>Student Member · ASM Global Outreach</h3>
+        <div class="card-meta">American Society for Microbiology</div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2026 Meena Vignesh M · Built for academic & research opportunities</p>
-  </footer>
+  <section class="section" id="contact">
+    <div class="section-label">04 — Contact</div>
+    <div class="contact-panel">
+      <h2>Let’s connect</h2>
+      <p>Open to research internships in Bioengineering, Bioinformatics, and AI for Biology.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:meenavignesh6789@gmail.com">Email</a>
+        <a class="btn btn-outline" href="https://github.com/meenavignesh-svg" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/meena-vignesh-m-310664380" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="contact-note">09791361692 · Tamil Nadu, India</p>
+    </div>
+  </section>
+
+  <footer>© 2026 Meena Vignesh M · Built for academic & research opportunities</footer>
 
   <script>
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      navToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    burger.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      burger.textContent = menu.classList.contains('open') ? '✕' : '☰';
     });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.textContent = '☰';
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        burger.textContent = '☰';
       });
     });
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
